@@ -2,6 +2,7 @@
 
 ## Is there any relationship between who a person works for and their performance score?
 - [Bar](https://christiannielsen98.github.io/docs/Python/HTML/PerfomanceManagerCorrelation.html)
+
 ## What is the overall diversity profile of the organization?
 
 ## What are our best recruiting sources if we want to ensure a diverse organization?
