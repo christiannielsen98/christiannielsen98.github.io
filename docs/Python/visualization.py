@@ -69,7 +69,7 @@ def EquitablePayByGroups():
 
     layout = dict(title='Salary pay', showlegend=True,
                   updatemenus=updatemenus,
-                  yaxis_title='Yearly salary in dollars',
+                  yaxis_title='Annual salary in dollars',
                   boxmode='group',
                   xaxis_type='category'
                   )
@@ -77,12 +77,16 @@ def EquitablePayByGroups():
     fig = go.Figure(data=traces, layout=layout)
     fig.update_xaxes(showgrid=True)
 
-    fig.show()
     return fig.write_html(
         "/Users/christiannielsen/Documents/GitHub/christiannielsen98.github.io/docs/Python/HTML/EquitablePayByGroups.html")
 
 EquitablePayByGroups()
 
-def Heatmap():
-    fig = px.density_heatmap(HR_df, x="Position", y="RaceDesc")
-    fig.show()
+def DiversityMap():
+    # fig = px.density_heatmap(HR_df, x="Position", y="RaceDesc")
+
+    fig = px.density_heatmap(HR_df, x="Position", y="RaceDesc", facet_row="Sex")
+
+    return fig.write_html(
+        "/Users/christiannielsen/Documents/GitHub/christiannielsen98.github.io/docs/Python/HTML/DiversityMap.html")
+DiversityMap()

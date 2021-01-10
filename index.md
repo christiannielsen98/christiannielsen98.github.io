@@ -7,12 +7,14 @@
 - [Boxplot](https://christiannielsen98.github.io/docs/Python/HTML/EquitablePayByGroups.html)
 
 ## What is the overall diversity profile of the organization?
-- 
+- [Heatmap](https://christiannielsen98.github.io/docs/Python/HTML/DiversityMap.html)
 
-## What are our best recruiting sources if we want to ensure a diverse organization?
-- 
+[comment]: <> (## What are our best recruiting sources if we want to ensure a diverse organization?)
 
-## Can we predict who is going to be terminated and who isn't? What level of accuracy can we achieve on this?
-- 
+[comment]: <> (- )
+
+[comment]: <> (## Can we predict who is going to be terminated and who isn't? What level of accuracy can we achieve on this?)
+
+[comment]: <> (- )
 
 
