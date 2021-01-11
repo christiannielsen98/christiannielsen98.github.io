@@ -99,7 +99,8 @@ def GenderDiversityBar():
                 y=HR_df_GenderRatio.loc[HR_df_GenderRatio['Sex'] == "F"].GenderRatio,
                 name='Women')
     fig.update_layout(barmode="relative")
-    fig.show()
+    # fig.show()
+    # add a count of amount in each department maybe
     return fig.write_html(
         "/Users/christiannielsen/Documents/GitHub/christiannielsen98.github.io/docs/Python/HTML/GenderDiversityBar.html")
 GenderDiversityBar()
