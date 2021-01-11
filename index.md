@@ -1,4 +1,4 @@
-# VisProject
+# HR Data Visualisation Project
 
 ## Is there any relationship between who a person works for and their performance score?
 - [Bar](https://christiannielsen98.github.io/docs/Python/HTML/PerfomanceManagerCorrelation.html)
