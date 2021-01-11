@@ -1,52 +1,61 @@
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+
 HR_df = pd.read_csv("/Users/christiannielsen/Documents/GitHub/christiannielsen98.github.io/HRDataset_v14.csv")
 
 
 def PerfomanceManagerCorrelation():
     fig = px.bar(HR_df, x="ManagerName", y="EmpID", color="PerformanceScore")
     fig.update_layout(barmode='stack', xaxis={'categoryorder': 'total descending'})
-    return fig.write_html("/Users/christiannielsen/Documents/GitHub/christiannielsen98.github.io/docs/Python/HTML/PerfomanceManagerCorrelation.html")
+    return fig.write_html(
+        "/Users/christiannielsen/Documents/GitHub/christiannielsen98.github.io/docs/Python/HTML/PerfomanceManagerCorrelation.html")
+
+
 PerfomanceManagerCorrelation()
+
 
 def EquitablePayByGroups():
     trace_position_m = go.Box(x=HR_df.loc[HR_df['Sex'] == "M "].Position,
-                            y=HR_df.loc[HR_df['Sex'] == "M "].Salary,
-                            name='Men',
-                            marker_color='blue'
-                            )
-
-    trace_position_f = go.Box(x=HR_df.loc[HR_df['Sex'] == "F"].Position,
-                            y=HR_df.loc[HR_df['Sex'] == "F"].Salary,
-                            name='Women',
-                            marker_color='red'
-                            )
-
-    trace_race_m = go.Box(x=HR_df.loc[HR_df['Sex'] == "M "].RaceDesc,
                               y=HR_df.loc[HR_df['Sex'] == "M "].Salary,
                               name='Men',
                               marker_color='blue'
-                          )
-    trace_race_f = go.Box(x=HR_df.loc[HR_df['Sex'] == "F"].RaceDesc,
+                              )
+
+    trace_position_f = go.Box(x=HR_df.loc[HR_df['Sex'] == "F"].Position,
                               y=HR_df.loc[HR_df['Sex'] == "F"].Salary,
                               name='Women',
-                              marker_color= 'red'
+                              marker_color='red'
+                              )
+
+    trace_race_m = go.Box(x=HR_df.loc[HR_df['Sex'] == "M "].RaceDesc,
+                          y=HR_df.loc[HR_df['Sex'] == "M "].Salary,
+                          name='Men',
+                          marker_color='blue',
+                                   visible=False
+                          )
+    trace_race_f = go.Box(x=HR_df.loc[HR_df['Sex'] == "F"].RaceDesc,
+                          y=HR_df.loc[HR_df['Sex'] == "F"].Salary,
+                          name='Women',
+                          marker_color='red',
+                                   visible=False
                           )
 
     trace_maritalstatus_m = go.Box(x=HR_df.loc[HR_df['Sex'] == "M "].MaritalDesc,
-                          y=HR_df.loc[HR_df['Sex'] == "M "].Salary,
-                          name='Men',
-                          marker_color='blue'
+                                   y=HR_df.loc[HR_df['Sex'] == "M "].Salary,
+                                   name='Men',
+                                   marker_color='blue',
+                                   visible=False
                                    )
     trace_maritalstatus_f = go.Box(x=HR_df.loc[HR_df['Sex'] == "F"].MaritalDesc,
-                          y=HR_df.loc[HR_df['Sex'] == "F"].Salary,
-                          name='Women',
-                          marker_color='red'
+                                   y=HR_df.loc[HR_df['Sex'] == "F"].Salary,
+                                   name='Women',
+                                   marker_color='red',
+                                   visible=False
                                    )
 
-    traces = [trace_position_m, trace_position_f, trace_race_m, trace_race_f, trace_maritalstatus_m, trace_maritalstatus_f]
-
+    traces = [trace_position_m, trace_position_f, trace_race_m, trace_race_f, trace_maritalstatus_m,
+              trace_maritalstatus_f]
 
     updatemenus = list([
         dict(active=0,
@@ -80,17 +89,23 @@ def EquitablePayByGroups():
     return fig.write_html(
         "/Users/christiannielsen/Documents/GitHub/christiannielsen98.github.io/docs/Python/HTML/EquitablePayByGroups.html")
 
+
 EquitablePayByGroups()
+
 
 def DiversityMap():
     fig = px.density_heatmap(HR_df, x="Position", y="RaceDesc", facet_row="Sex")
 
     return fig.write_html(
         "/Users/christiannielsen/Documents/GitHub/christiannielsen98.github.io/docs/Python/HTML/DiversityMap.html")
+
+
 DiversityMap()
 
+
 def GenderDiversityBar():
-    HR_df_GenderRatio = pd.DataFrame({'GenderRatio' : HR_df.groupby("Position")["Sex"].value_counts(normalize=True).mul(100)}).reset_index()
+    HR_df_GenderRatio = pd.DataFrame(
+        {'GenderRatio': HR_df.groupby("Position")["Sex"].value_counts(normalize=True).mul(100)}).reset_index()
     fig = go.Figure()
     fig.add_bar(x=HR_df_GenderRatio.loc[HR_df_GenderRatio['Sex'] == "M "].Position,
                 y=HR_df_GenderRatio.loc[HR_df_GenderRatio['Sex'] == "M "].GenderRatio,
@@ -102,6 +117,7 @@ def GenderDiversityBar():
     # maybe add a count of amount in each department
     return fig.write_html(
         "/Users/christiannielsen/Documents/GitHub/christiannielsen98.github.io/docs/Python/HTML/GenderDiversityBar.html")
+
 
 # percents_df = pd.DataFrame({'GenderRatio' : HR_df.groupby("Position")["Sex"].value_counts(normalize=True).mul(100)}).reset_index()
 # print(percents_df)
