@@ -83,10 +83,26 @@ def EquitablePayByGroups():
 EquitablePayByGroups()
 
 def DiversityMap():
-    # fig = px.density_heatmap(HR_df, x="Position", y="RaceDesc")
-
     fig = px.density_heatmap(HR_df, x="Position", y="RaceDesc", facet_row="Sex")
 
     return fig.write_html(
         "/Users/christiannielsen/Documents/GitHub/christiannielsen98.github.io/docs/Python/HTML/DiversityMap.html")
 DiversityMap()
+
+def GenderDiversityBar():
+    HR_df_GenderRatio = pd.DataFrame({'GenderRatio' : HR_df.groupby("Position")["Sex"].value_counts(normalize=True).mul(100)}).reset_index()
+    fig = go.Figure()
+    fig.add_bar(x=HR_df_GenderRatio.loc[HR_df_GenderRatio['Sex'] == "M "].Position,
+                y=HR_df_GenderRatio.loc[HR_df_GenderRatio['Sex'] == "M "].GenderRatio,
+                name='Men')
+    fig.add_bar(x=HR_df_GenderRatio.loc[HR_df_GenderRatio['Sex'] == "F"].Position,
+                y=HR_df_GenderRatio.loc[HR_df_GenderRatio['Sex'] == "F"].GenderRatio,
+                name='Women')
+    fig.update_layout(barmode="relative")
+    fig.show()
+    return fig.write_html(
+        "/Users/christiannielsen/Documents/GitHub/christiannielsen98.github.io/docs/Python/HTML/GenderDiversityBar.html")
+GenderDiversityBar()
+
+# percents_df = pd.DataFrame({'GenderRatio' : HR_df.groupby("Position")["Sex"].value_counts(normalize=True).mul(100)}).reset_index()
+# print(percents_df)

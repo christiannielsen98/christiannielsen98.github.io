@@ -6,7 +6,7 @@
 ## Are there areas of the company where pay is not equitable?
 - [Boxplot](https://christiannielsen98.github.io/docs/Python/HTML/EquitablePayByGroups.html)
 
-## What is the overall diversity profile of the organization?
+## What is the overall diversity profile of the organisation?
 - [Heatmap](https://christiannielsen98.github.io/docs/Python/HTML/DiversityMap.html)
 
 [comment]: <> (## What are our best recruiting sources if we want to ensure a diverse organization?)
