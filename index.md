@@ -8,7 +8,8 @@
 
 ## What is the overall diversity profile of the organisation?
 - [Heatmap](https://christiannielsen98.github.io/docs/Python/HTML/DiversityMap.html)
-- [Bar relational](https://christiannielsen98.github.io/docs/Python/HTML/GenderDiversityBar.html)
+
+[comment]: <> (- [Bar relational]&#40;https://christiannielsen98.github.io/docs/Python/HTML/GenderDiversityBar.html&#41;)
 
 [comment]: <> (## What are our best recruiting sources if we want to ensure a diverse organization?)
 
