@@ -2,6 +2,7 @@
 
 ## Is there any relationship between who a person works for and their performance score?
 - [Bar](https://christiannielsen98.github.io/docs/Python/HTML/PerfomanceManagerCorrelation.html)
+- [Bar Improved](https://christiannielsen98.github.io/docs/Python/HTML/PerfomanceManagerCorrelationImproved.html)
 
 ## Are there areas of the company where pay is not equitable?
 - [Boxplot](https://christiannielsen98.github.io/docs/Python/HTML/EquitablePayByGroups.html)

@@ -11,9 +11,18 @@ def PerfomanceManagerCorrelation():
     return fig.write_html(
         "/Users/christiannielsen/Documents/GitHub/christiannielsen98.github.io/docs/Python/HTML/PerfomanceManagerCorrelation.html")
 
+def PerfomanceManagerCorrelationImproved():
+    fig = px.bar(HR_df, x="ManagerName", y="EmpID", color="PerformanceScore", color_discrete_map={
+                "Exceeds": "Lime",
+                "Fully Meets": "Green",
+                "Needs Improvement": "Yellow",
+                "PIP": "Red"})
+    fig.update_layout(barmode='stack', xaxis={'categoryorder': 'total descending'})
+    return fig.write_html(
+        "/Users/christiannielsen/Documents/GitHub/christiannielsen98.github.io/docs/Python/HTML/PerfomanceManagerCorrelationImproved.html")
 
 PerfomanceManagerCorrelation()
-
+PerfomanceManagerCorrelationImproved()
 
 def EquitablePayByGroups():
     trace_position_m = go.Box(x=HR_df.loc[HR_df['Sex'] == "M "].Position,
